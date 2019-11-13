@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: caller-service
+  cloud:
+    consul:
+      host: localhost
+      discovery:
+        hostname: localhost
+        register-health-check: false

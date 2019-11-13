@@ -1,0 +1,181 @@
+2019-11-10 11:12:16.359  INFO 11044 --- [main] c.swisscom.registro.RegistroApplication  : No active profile set, falling back to default profiles: default
+2019-11-10 11:12:17.192  WARN 11044 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-11-10 11:12:17.419  INFO 11044 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1071ccbc-410b-3c72-93c3-7a4a7693a57b
+2019-11-10 11:12:17.514  INFO 11044 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$5b0ecee7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-10 11:12:17.732  INFO 11044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8761 (http)
+2019-11-10 11:12:17.755  INFO 11044 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-11-10 11:12:17.755  INFO 11044 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-11-10 11:12:17.892  INFO 11044 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-11-10 11:12:17.897  INFO 11044 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1529 ms
+2019-11-10 11:12:18.021  WARN 11044 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-11-10 11:12:18.021  INFO 11044 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-11-10 11:12:18.031  INFO 11044 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@37c36608
+2019-11-10 11:12:19.489  INFO 11044 --- [main] o.s.b.a.e.web.ServletEndpointRegistrar   : Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2019-11-10 11:12:19.560  INFO 11044 --- [main] c.s.j.s.i.a.WebApplicationImpl           : Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:08 PM'
+2019-11-10 11:12:19.635  INFO 11044 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2019-11-10 11:12:19.636  INFO 11044 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2019-11-10 11:12:19.753  INFO 11044 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2019-11-10 11:12:19.753  INFO 11044 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2019-11-10 11:12:20.242  WARN 11044 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-11-10 11:12:20.242  INFO 11044 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-11-10 11:12:20.403  INFO 11044 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-10 11:12:21.285  INFO 11044 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2019-11-10 11:12:21.391  INFO 11044 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: d71c6533-dcd3-4bf7-8e7c-bb23ebfd3f7b
+
+2019-11-10 11:12:21.480  INFO 11044 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@46702c26, org.springframework.security.web.context.SecurityContextPersistenceFilter@241fc278, org.springframework.security.web.header.HeaderWriterFilter@3e8b8f0, org.springframework.security.web.authentication.logout.LogoutFilter@e881e46, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5aab5b31, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@23f5008a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7956f93a, org.springframework.security.web.session.SessionManagementFilter@32e697ac, org.springframework.security.web.access.ExceptionTranslationFilter@59933644, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@473847fb]
+2019-11-10 11:12:22.504  INFO 11044 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-11-10 11:12:22.533  INFO 11044 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2019-11-10 11:12:22.538  INFO 11044 --- [main] com.netflix.discovery.DiscoveryClient    : Client configured to neither register nor query for data.
+2019-11-10 11:12:22.543  INFO 11044 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1573380742542 with initial instances count: 0
+2019-11-10 11:12:22.579  INFO 11044 --- [main] c.n.eureka.DefaultEurekaServerContext    : Initializing ...
+2019-11-10 11:12:22.581  INFO 11044 --- [main] c.n.eureka.cluster.PeerEurekaNodes       : Adding new peer nodes [http://localhost:8761/]
+2019-11-10 11:12:22.606  INFO 11044 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2019-11-10 11:12:22.606  INFO 11044 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2019-11-10 11:12:22.611  INFO 11044 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2019-11-10 11:12:22.611  INFO 11044 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2019-11-10 11:12:22.696  INFO 11044 --- [main] c.n.eureka.cluster.PeerEurekaNodes       : Replica node URL:  http://localhost:8761/
+2019-11-10 11:12:22.704  INFO 11044 --- [main] c.n.e.registry.AbstractInstanceRegistry  : Finished initializing remote region registries. All known remote regions: []
+2019-11-10 11:12:22.705  INFO 11044 --- [main] c.n.eureka.DefaultEurekaServerContext    : Initialized
+2019-11-10 11:12:22.713  INFO 11044 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 21 endpoint(s) beneath base path '/actuator'
+2019-11-10 11:12:22.790  INFO 11044 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application REGISTRO with eureka with status UP
+2019-11-10 11:12:22.794  INFO 11044 --- [Thread-12] o.s.c.n.e.server.EurekaServerBootstrap   : Setting the eureka configuration..
+2019-11-10 11:12:22.800  INFO 11044 --- [Thread-12] o.s.c.n.e.server.EurekaServerBootstrap   : Eureka data center value eureka.datacenter is not set, defaulting to default
+2019-11-10 11:12:22.801  INFO 11044 --- [Thread-12] o.s.c.n.e.server.EurekaServerBootstrap   : Eureka environment value eureka.environment is not set, defaulting to test
+2019-11-10 11:12:22.817  INFO 11044 --- [Thread-12] o.s.c.n.e.server.EurekaServerBootstrap   : isAws returned false
+2019-11-10 11:12:22.817  INFO 11044 --- [Thread-12] o.s.c.n.e.server.EurekaServerBootstrap   : Initialized server context
+2019-11-10 11:12:22.818  INFO 11044 --- [Thread-12] c.n.e.r.PeerAwareInstanceRegistryImpl    : Got 1 instances from neighboring DS node
+2019-11-10 11:12:22.818  INFO 11044 --- [Thread-12] c.n.e.r.PeerAwareInstanceRegistryImpl    : Renew threshold is: 1
+2019-11-10 11:12:22.818  INFO 11044 --- [Thread-12] c.n.e.r.PeerAwareInstanceRegistryImpl    : Changing status to UP
+2019-11-10 11:12:22.825  INFO 11044 --- [Thread-12] e.s.EurekaServerInitializerConfiguration : Started Eureka Server
+2019-11-10 11:12:22.832  INFO 11044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8761 (http) with context path ''
+2019-11-10 11:12:22.832  INFO 11044 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8761
+2019-11-10 11:12:22.834  INFO 11044 --- [main] c.swisscom.registro.RegistroApplication  : Started RegistroApplication in 9.063 seconds (JVM running for 10.048)
+2019-11-10 11:12:23.068  INFO 11044 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Application registered itself as 3f548e52f0a6
+2019-11-10 11:12:23.089  INFO 11044 --- [http-nio-8761-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-11-10 11:12:23.089  INFO 11044 --- [http-nio-8761-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-11-10 11:12:23.097  INFO 11044 --- [http-nio-8761-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-11-10 11:12:23.309  INFO 11044 --- [http-nio-8761-exec-5] c.n.e.registry.AbstractInstanceRegistry  : Registered instance HEROES_PASSTHROUGH/10.0.75.1:heroes_passthrough:8084 with status UP (replication=false)
+2019-11-10 11:12:23.880 ERROR 11044 --- [TaskBatchingWorker-target_localhost-6] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 1 replication tasks
+2019-11-10 11:12:23.887  WARN 11044 --- [TaskBatchingWorker-target_localhost-6] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-6 due to permanent error
+2019-11-10 11:12:24.641  INFO 11044 --- [http-nio-8761-exec-8] c.n.e.registry.AbstractInstanceRegistry  : Registered instance HEROES/10.0.75.1:heroes:8083 with status UP (replication=false)
+2019-11-10 11:12:25.157 ERROR 11044 --- [TaskBatchingWorker-target_localhost-8] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 1 replication tasks
+2019-11-10 11:12:25.162  WARN 11044 --- [TaskBatchingWorker-target_localhost-8] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-8 due to permanent error
+2019-11-10 11:12:53.764 ERROR 11044 --- [TaskBatchingWorker-target_localhost-6] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 1 replication tasks
+2019-11-10 11:12:53.776  WARN 11044 --- [TaskBatchingWorker-target_localhost-6] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-6 due to permanent error
+2019-11-10 11:12:55.101 ERROR 11044 --- [TaskBatchingWorker-target_localhost-8] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 1 replication tasks
+2019-11-10 11:12:55.112  WARN 11044 --- [TaskBatchingWorker-target_localhost-8] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-8 due to permanent error
+2019-11-10 11:13:22.820  INFO 11044 --- [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2019-11-10 11:13:23.765 ERROR 11044 --- [TaskBatchingWorker-target_localhost-6] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 1 replication tasks
+2019-11-10 11:13:23.776  WARN 11044 --- [TaskBatchingWorker-target_localhost-6] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-6 due to permanent error
+2019-11-10 11:13:25.105 ERROR 11044 --- [TaskBatchingWorker-target_localhost-8] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 1 replication tasks
+2019-11-10 11:13:25.117  WARN 11044 --- [TaskBatchingWorker-target_localhost-8] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-8 due to permanent error
+2019-11-10 11:13:53.782 ERROR 11044 --- [TaskBatchingWorker-target_localhost-6] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 1 replication tasks
+2019-11-10 11:13:53.797  WARN 11044 --- [TaskBatchingWorker-target_localhost-6] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-6 due to permanent error
+2019-11-10 11:13:55.117 ERROR 11044 --- [TaskBatchingWorker-target_localhost-8] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 1 replication tasks
+2019-11-10 11:13:55.131  WARN 11044 --- [TaskBatchingWorker-target_localhost-8] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-8 due to permanent error
+2019-11-10 11:14:22.821  INFO 11044 --- [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 1ms
+2019-11-10 11:14:23.791 ERROR 11044 --- [TaskBatchingWorker-target_localhost-13] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 1 replication tasks
+2019-11-10 11:14:23.810  WARN 11044 --- [TaskBatchingWorker-target_localhost-13] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-13 due to permanent error
+2019-11-10 11:14:25.131 ERROR 11044 --- [TaskBatchingWorker-target_localhost-8] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 1 replication tasks
+2019-11-10 11:14:25.149  WARN 11044 --- [TaskBatchingWorker-target_localhost-8] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-8 due to permanent error
+2019-11-10 11:14:53.808 ERROR 11044 --- [TaskBatchingWorker-target_localhost-0] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 1 replication tasks
+2019-11-10 11:14:53.823  WARN 11044 --- [TaskBatchingWorker-target_localhost-0] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-0 due to permanent error
+2019-11-10 11:14:55.143 ERROR 11044 --- [TaskBatchingWorker-target_localhost-8] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 1 replication tasks
+2019-11-10 11:14:55.161  WARN 11044 --- [TaskBatchingWorker-target_localhost-8] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-8 due to permanent error
+2019-11-10 11:15:22.821  INFO 11044 --- [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2019-11-10 11:15:23.819 ERROR 11044 --- [TaskBatchingWorker-target_localhost-17] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 1 replication tasks
+2019-11-10 11:15:23.833  WARN 11044 --- [TaskBatchingWorker-target_localhost-17] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-17 due to permanent error
+2019-11-10 11:15:25.148 ERROR 11044 --- [TaskBatchingWorker-target_localhost-8] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 1 replication tasks
+2019-11-10 11:15:25.158  WARN 11044 --- [TaskBatchingWorker-target_localhost-8] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-8 due to permanent error
+2019-11-10 11:15:53.826 ERROR 11044 --- [TaskBatchingWorker-target_localhost-2] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 1 replication tasks
+2019-11-10 11:15:53.837  WARN 11044 --- [TaskBatchingWorker-target_localhost-2] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-2 due to permanent error
+2019-11-10 11:15:55.162 ERROR 11044 --- [TaskBatchingWorker-target_localhost-8] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 1 replication tasks
+2019-11-10 11:15:55.179  WARN 11044 --- [TaskBatchingWorker-target_localhost-8] c.n.eureka.util.batcher.TaskExecutors    : Discarding 1 tasks of TaskBatchingWorker-target_localhost-8 due to permanent error
+2019-11-10 11:16:05.159  INFO 11044 --- [http-nio-8761-exec-8] c.n.e.registry.AbstractInstanceRegistry  : Registered instance HEROES/10.0.75.1:heroes:8083 with status DOWN (replication=false)
+2019-11-10 11:16:05.177  INFO 11044 --- [http-nio-8761-exec-7] c.n.e.registry.AbstractInstanceRegistry  : Cancelled instance HEROES/10.0.75.1:heroes:8083 (replication=false)
+2019-11-10 11:16:05.689 ERROR 11044 --- [TaskBatchingWorker-target_localhost-7] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 2 replication tasks
+2019-11-10 11:16:05.690  WARN 11044 --- [TaskBatchingWorker-target_localhost-7] c.n.eureka.util.batcher.TaskExecutors    : Discarding 2 tasks of TaskBatchingWorker-target_localhost-7 due to permanent error
+2019-11-10 11:16:15.080  WARN 11044 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=registro, managementUrl=http://10.0.75.1:8761/actuator, healthUrl=http://10.0.75.1:8761/actuator/health, serviceUrl=http://10.0.75.1:8761/) at spring-boot-admin ([http://localhost:8081/instances]): I/O error on POST request for "http://localhost:8081/instances": Connect to localhost:8081 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8081 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect. Further attempts are logged on DEBUG level
+2019-11-10 11:16:17.808  INFO 11044 --- [http-nio-8761-exec-4] c.n.e.registry.AbstractInstanceRegistry  : Registered instance HEROES_PASSTHROUGH/10.0.75.1:heroes_passthrough:8084 with status DOWN (replication=false)
+2019-11-10 11:16:17.822  INFO 11044 --- [http-nio-8761-exec-5] c.n.e.registry.AbstractInstanceRegistry  : Cancelled instance HEROES_PASSTHROUGH/10.0.75.1:heroes_passthrough:8084 (replication=false)
+2019-11-10 11:16:18.337 ERROR 11044 --- [TaskBatchingWorker-target_localhost-7] c.n.e.cluster.ReplicationTaskProcessor   : Batch update failure with HTTP status code 404; discarding 2 replication tasks
+2019-11-10 11:16:18.351  WARN 11044 --- [TaskBatchingWorker-target_localhost-7] c.n.eureka.util.batcher.TaskExecutors    : Discarding 2 tasks of TaskBatchingWorker-target_localhost-7 due to permanent error
+2019-11-10 11:16:20.587  INFO 11044 --- [RMI TCP Connection(11)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-11-10 11:16:20.605  INFO 11044 --- [RMI TCP Connection(11)-127.0.0.1] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application REGISTRO with eureka with status DOWN
+2019-11-10 11:16:20.609  INFO 11044 --- [RMI TCP Connection(11)-127.0.0.1] c.n.eureka.DefaultEurekaServerContext    : Shutting down ...
+2019-11-10 11:16:20.621  INFO 11044 --- [RMI TCP Connection(11)-127.0.0.1] c.n.eureka.DefaultEurekaServerContext    : Shut down
+2019-11-10 11:16:20.624  INFO 11044 --- [RMI TCP Connection(11)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService
+2019-11-10 11:16:20.625  INFO 11044 --- [RMI TCP Connection(11)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-11-10 11:16:20.629  INFO 11044 --- [RMI TCP Connection(11)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2019-11-10 11:16:20.636  INFO 11044 --- [RMI TCP Connection(11)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2019-11-10 11:16:20.956  INFO 11044 --- [RMI TCP Connection(11)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2019-11-10 11:16:20.961  INFO 11044 --- [RMI TCP Connection(11)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2019-11-10 17:49:29.306  INFO 7388 --- [main] c.s.registro.RegistroApplicationTests    : No active profile set, falling back to default profiles: default
+2019-11-10 17:49:30.131  WARN 7388 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-11-10 17:49:30.496  INFO 7388 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=41e094f1-7c2b-3d3c-9b0f-7dc21033773b
+2019-11-10 17:49:30.709  INFO 7388 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$1c8bb5f1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-10 17:49:30.988  WARN 7388 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-11-10 17:49:30.989  INFO 7388 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-11-10 17:49:31.007  INFO 7388 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@48eb001a
+2019-11-10 17:49:31.381  WARN 7388 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-11-10 17:49:31.388  INFO 7388 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-11-10 17:49:31.714  INFO 7388 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-10 17:49:34.216  INFO 7388 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2019-11-10 17:49:34.408  INFO 7388 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 84f6f989-5496-4c9d-96b1-9eeca9a4bda9
+
+2019-11-10 17:49:34.612  INFO 7388 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@52a7928a, org.springframework.security.web.context.SecurityContextPersistenceFilter@f5bf288, org.springframework.security.web.header.HeaderWriterFilter@1a14fdf0, org.springframework.security.web.authentication.logout.LogoutFilter@74b00247, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@26c77f54, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@560271a1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@563ccd31, org.springframework.security.web.session.SessionManagementFilter@4aed311e, org.springframework.security.web.access.ExceptionTranslationFilter@6af65f29, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1b560eb0]
+2019-11-10 17:49:35.905  INFO 7388 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-11-10 17:49:35.956  INFO 7388 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2019-11-10 17:49:35.964  INFO 7388 --- [main] com.netflix.discovery.DiscoveryClient    : Client configured to neither register nor query for data.
+2019-11-10 17:49:35.982  INFO 7388 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1573404575981 with initial instances count: 0
+2019-11-10 17:49:36.081  INFO 7388 --- [main] c.n.eureka.DefaultEurekaServerContext    : Initializing ...
+2019-11-10 17:49:36.086  INFO 7388 --- [main] c.n.eureka.cluster.PeerEurekaNodes       : Adding new peer nodes [http://localhost:8761/]
+2019-11-10 17:49:36.133  INFO 7388 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2019-11-10 17:49:36.140  INFO 7388 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2019-11-10 17:49:36.140  INFO 7388 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2019-11-10 17:49:36.140  INFO 7388 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2019-11-10 17:49:36.346  INFO 7388 --- [main] c.n.eureka.cluster.PeerEurekaNodes       : Replica node URL:  http://localhost:8761/
+2019-11-10 17:49:36.360  INFO 7388 --- [main] c.n.e.registry.AbstractInstanceRegistry  : Finished initializing remote region registries. All known remote regions: []
+2019-11-10 17:49:36.361  INFO 7388 --- [main] c.n.eureka.DefaultEurekaServerContext    : Initialized
+2019-11-10 17:49:36.564  INFO 7388 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 21 endpoint(s) beneath base path '/actuator'
+2019-11-10 17:49:36.652  INFO 7388 --- [Thread-11] o.s.c.n.e.server.EurekaServerBootstrap   : Setting the eureka configuration..
+2019-11-10 17:49:36.663  INFO 7388 --- [Thread-11] o.s.c.n.e.server.EurekaServerBootstrap   : Eureka data center value eureka.datacenter is not set, defaulting to default
+2019-11-10 17:49:36.664  INFO 7388 --- [Thread-11] o.s.c.n.e.server.EurekaServerBootstrap   : Eureka environment value eureka.environment is not set, defaulting to test
+2019-11-10 17:49:36.681  INFO 7388 --- [main] c.s.registro.RegistroApplicationTests    : Started RegistroApplicationTests in 10.435 seconds (JVM running for 11.736)
+2019-11-10 17:49:36.689  INFO 7388 --- [Thread-11] o.s.c.n.e.server.EurekaServerBootstrap   : isAws returned false
+2019-11-10 17:49:36.698  INFO 7388 --- [Thread-11] o.s.c.n.e.server.EurekaServerBootstrap   : Initialized server context
+2019-11-10 17:49:36.698  INFO 7388 --- [Thread-11] c.n.e.r.PeerAwareInstanceRegistryImpl    : Got 1 instances from neighboring DS node
+2019-11-10 17:49:36.698  INFO 7388 --- [Thread-11] c.n.e.r.PeerAwareInstanceRegistryImpl    : Renew threshold is: 1
+2019-11-10 17:49:36.698  INFO 7388 --- [Thread-11] c.n.e.r.PeerAwareInstanceRegistryImpl    : Changing status to UP
+2019-11-10 17:49:36.713  INFO 7388 --- [Thread-11] e.s.EurekaServerInitializerConfiguration : Started Eureka Server
+2019-11-10 17:49:36.715 ERROR 7388 --- [registrationTask1] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task.
+
+java.lang.IllegalStateException: couldn't determine local port. Please set spring.boot.admin.client.instance.service-base-url.
+	at de.codecentric.boot.admin.client.registration.DefaultApplicationFactory.getLocalServerPort(DefaultApplicationFactory.java:189) ~[spring-boot-admin-client-2.1.5.jar:2.1.5]
+	at de.codecentric.boot.admin.client.registration.DefaultApplicationFactory.getServiceBaseUrl(DefaultApplicationFactory.java:104) ~[spring-boot-admin-client-2.1.5.jar:2.1.5]
+	at de.codecentric.boot.admin.client.registration.ServletApplicationFactory.getServiceUrl(ServletApplicationFactory.java:62) ~[spring-boot-admin-client-2.1.5.jar:2.1.5]
+	at de.codecentric.boot.admin.client.registration.ServletApplicationFactory.getManagementBaseUrl(ServletApplicationFactory.java:77) ~[spring-boot-admin-client-2.1.5.jar:2.1.5]
+	at de.codecentric.boot.admin.client.registration.DefaultApplicationFactory.getHealthUrl(DefaultApplicationFactory.java:150) ~[spring-boot-admin-client-2.1.5.jar:2.1.5]
+	at de.codecentric.boot.admin.client.registration.DefaultApplicationFactory.createApplication(DefaultApplicationFactory.java:75) ~[spring-boot-admin-client-2.1.5.jar:2.1.5]
+	at de.codecentric.boot.admin.client.registration.ApplicationRegistrator.createApplication(ApplicationRegistrator.java:154) ~[spring-boot-admin-client-2.1.5.jar:2.1.5]
+	at de.codecentric.boot.admin.client.registration.ApplicationRegistrator.register(ApplicationRegistrator.java:71) ~[spring-boot-admin-client-2.1.5.jar:2.1.5]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.1.11.RELEASE.jar:5.1.11.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_131]
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308) [na:1.8.0_131]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_131]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294) [na:1.8.0_131]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_131]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_131]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_131]
+
+2019-11-10 17:49:36.997  INFO 7388 --- [Thread-12] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application REGISTRO with eureka with status DOWN
+2019-11-10 17:49:37.002  INFO 7388 --- [Thread-12] c.n.eureka.DefaultEurekaServerContext    : Shutting down ...
+2019-11-10 17:49:37.012  INFO 7388 --- [Thread-12] c.n.eureka.DefaultEurekaServerContext    : Shut down
+2019-11-10 17:49:37.015  INFO 7388 --- [Thread-12] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService
+2019-11-10 17:49:37.017  INFO 7388 --- [Thread-12] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-11-10 17:49:37.021  INFO 7388 --- [Thread-12] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2019-11-10 17:49:37.021  INFO 7388 --- [Thread-12] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient

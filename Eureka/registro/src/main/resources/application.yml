@@ -1,0 +1,54 @@
+server:
+  port: 8761
+
+#Conexion con Admin APP
+spring:
+  application:
+    name: registro
+  boot:
+    admin:
+      client:
+        instance:
+          metadata:
+            tags:
+              environment: prueba
+        url: http://localhost:8081
+        username: admin
+        password: pass
+        
+# Configurar Eureka como servidor
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://localhost:8761  
+  server:
+    waitTimeInMsWhenSyncEmpty: 30      
+
+# Configurar Actuator
+management:
+  endpoints:
+    jmx:
+      exposure:
+        exclude: shutdown
+        include: "*"
+    web:
+      exposure:
+        exclude:
+        # include: health,info,metrics
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+logging:
+  file: milog.txt
+info:
+  tags:
+    environment: prueba
+  app:
+    name: Registro Eureka
+    description: Registro de servicios
+    version: 1.0.0      

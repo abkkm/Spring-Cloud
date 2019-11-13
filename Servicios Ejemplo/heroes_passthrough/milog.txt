@@ -1,0 +1,116 @@
+2019-11-10 11:12:16.525  INFO 16764 --- [main] com.swisscom.heroes.HeroesApplication    : No active profile set, falling back to default profiles: default
+2019-11-10 11:12:17.280  WARN 16764 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-11-10 11:12:17.458  INFO 16764 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=0f5b1ac1-d1c4-33a0-815c-a587f66442e1
+2019-11-10 11:12:17.539  INFO 16764 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$429b4846] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-10 11:12:17.744  INFO 16764 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2019-11-10 11:12:17.769  INFO 16764 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-11-10 11:12:17.769  INFO 16764 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-11-10 11:12:17.905  INFO 16764 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-11-10 11:12:17.916  INFO 16764 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1380 ms
+2019-11-10 11:12:18.042  WARN 16764 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-11-10 11:12:18.042  INFO 16764 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-11-10 11:12:18.051  INFO 16764 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@252a8aae
+2019-11-10 11:12:19.295  INFO 16764 --- [main] o.s.b.a.e.web.ServletEndpointRegistrar   : Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2019-11-10 11:12:19.445  INFO 16764 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 0a3a73ea-f152-44ef-8ecb-2092639f30a2
+
+2019-11-10 11:12:19.524  INFO 16764 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2f4b98f6, org.springframework.security.web.context.SecurityContextPersistenceFilter@34585ac9, org.springframework.security.web.header.HeaderWriterFilter@1db87583, org.springframework.security.web.authentication.logout.LogoutFilter@5583098b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@15f35bc3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@48e8c32a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@421def93, org.springframework.security.web.session.SessionManagementFilter@36baa049, org.springframework.security.web.access.ExceptionTranslationFilter@ceddaf8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@12ad1b2a]
+2019-11-10 11:12:19.537  WARN 16764 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-11-10 11:12:19.542  INFO 16764 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-11-10 11:12:19.686  INFO 16764 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-10 11:12:20.635  INFO 16764 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2019-11-10 11:12:21.637  INFO 16764 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 21 endpoint(s) beneath base path '/actuator'
+2019-11-10 11:12:21.740  INFO 16764 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-11-10 11:12:21.788  INFO 16764 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2019-11-10 11:12:21.852  INFO 16764 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2019-11-10 11:12:21.853  INFO 16764 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2019-11-10 11:12:21.976  INFO 16764 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2019-11-10 11:12:21.977  INFO 16764 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2019-11-10 11:12:22.151  INFO 16764 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-11-10 11:12:22.572  INFO 16764 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2019-11-10 11:12:22.578  INFO 16764 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2019-11-10 11:12:22.578  INFO 16764 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2019-11-10 11:12:22.578  INFO 16764 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2019-11-10 11:12:22.578  INFO 16764 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2019-11-10 11:12:22.584  INFO 16764 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2019-11-10 11:12:22.584  INFO 16764 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2019-11-10 11:12:23.215  INFO 16764 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2019-11-10 11:12:23.217  INFO 16764 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2019-11-10 11:12:23.219  INFO 16764 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2019-11-10 11:12:23.223  INFO 16764 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1573380743222 with initial instances count: 0
+2019-11-10 11:12:23.224  INFO 16764 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application HEROES_PASSTHROUGH with eureka with status UP
+2019-11-10 11:12:23.225  INFO 16764 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1573380743225, current=UP, previous=STARTING]
+2019-11-10 11:12:23.231  INFO 16764 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_HEROES_PASSTHROUGH/10.0.75.1:heroes_passthrough:8084: registering service...
+2019-11-10 11:12:23.271  INFO 16764 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2019-11-10 11:12:23.272  INFO 16764 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8084
+2019-11-10 11:12:23.273  INFO 16764 --- [main] com.swisscom.heroes.HeroesApplication    : Started HeroesApplication in 9.327 seconds (JVM running for 10.26)
+2019-11-10 11:12:23.313  INFO 16764 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_HEROES_PASSTHROUGH/10.0.75.1:heroes_passthrough:8084 - registration status: 204
+2019-11-10 11:12:23.446  INFO 16764 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Application registered itself as 14f3b77160ed
+2019-11-10 11:12:23.469  INFO 16764 --- [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-11-10 11:12:23.469  INFO 16764 --- [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-11-10 11:12:23.480  INFO 16764 --- [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2019-11-10 11:12:53.218  INFO 16764 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2019-11-10 11:12:53.231  INFO 16764 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2019-11-10 11:12:53.232  INFO 16764 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2019-11-10 11:12:53.242  INFO 16764 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2019-11-10 11:12:53.243  INFO 16764 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2019-11-10 11:12:53.243  INFO 16764 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2019-11-10 11:12:53.243  INFO 16764 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2019-11-10 11:12:53.318  INFO 16764 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2019-11-10 11:16:15.325  WARN 16764 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=heroes_passthrough, managementUrl=http://10.0.75.1:8084/actuator, healthUrl=http://10.0.75.1:8084/actuator/health, serviceUrl=http://10.0.75.1:8084/) at spring-boot-admin ([http://localhost:8081/instances]): I/O error on POST request for "http://localhost:8081/instances": Connect to localhost:8081 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8081 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect. Further attempts are logged on DEBUG level
+2019-11-10 11:16:17.761  INFO 16764 --- [RMI TCP Connection(13)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-11-10 11:16:17.780  INFO 16764 --- [RMI TCP Connection(13)-127.0.0.1] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application HEROES_PASSTHROUGH with eureka with status DOWN
+2019-11-10 11:16:17.791  WARN 16764 --- [RMI TCP Connection(13)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1573380977791, current=DOWN, previous=UP]
+2019-11-10 11:16:17.792  INFO 16764 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_HEROES_PASSTHROUGH/10.0.75.1:heroes_passthrough:8084: registering service...
+2019-11-10 11:16:17.796  INFO 16764 --- [RMI TCP Connection(13)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService
+2019-11-10 11:16:17.802  INFO 16764 --- [RMI TCP Connection(13)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-11-10 11:16:17.814  INFO 16764 --- [RMI TCP Connection(13)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2019-11-10 11:16:17.815  INFO 16764 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_HEROES_PASSTHROUGH/10.0.75.1:heroes_passthrough:8084 - registration status: 204
+2019-11-10 11:16:17.817  INFO 16764 --- [RMI TCP Connection(13)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2019-11-10 11:16:17.828  INFO 16764 --- [RMI TCP Connection(13)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_HEROES_PASSTHROUGH/10.0.75.1:heroes_passthrough:8084 - deregister  status: 200
+2019-11-10 11:16:17.835  INFO 16764 --- [RMI TCP Connection(13)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2019-11-10 11:16:18.145  INFO 16764 --- [RMI TCP Connection(13)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2019-11-10 11:16:18.146  INFO 16764 --- [RMI TCP Connection(13)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2019-11-10 17:46:51.469  INFO 2872 --- [main] c.s.heroes.HeroesApplicationTests        : No active profile set, falling back to default profiles: default
+2019-11-10 17:46:52.322  WARN 2872 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-11-10 17:46:52.588  INFO 2872 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=362d7773-64b9-3255-8e96-50282c0ce949
+2019-11-10 17:46:52.725  INFO 2872 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$c2e9ebc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-10 17:46:53.109  WARN 2872 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-11-10 17:46:53.109  INFO 2872 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-11-10 17:46:53.126  INFO 2872 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@47406941
+2019-11-10 17:46:53.654  INFO 2872 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 84b00108-0f04-4e63-af44-92cf0117fc3a
+
+2019-11-10 17:46:53.808  INFO 2872 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3bf54172, org.springframework.security.web.context.SecurityContextPersistenceFilter@33a55bd8, org.springframework.security.web.header.HeaderWriterFilter@1015a4b9, org.springframework.security.web.authentication.logout.LogoutFilter@32f96bba, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a1cc163, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3625a016, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2c9a6717, org.springframework.security.web.session.SessionManagementFilter@7b477141, org.springframework.security.web.access.ExceptionTranslationFilter@465b38e6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@adcfad9]
+2019-11-10 17:46:54.070  WARN 2872 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-11-10 17:46:54.070  INFO 2872 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-11-10 17:46:54.342  INFO 2872 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-10 17:46:56.539  INFO 2872 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2019-11-10 17:46:57.513  INFO 2872 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 21 endpoint(s) beneath base path '/actuator'
+2019-11-10 17:46:57.596  INFO 2872 --- [main] c.s.heroes.HeroesApplicationTests        : Started HeroesApplicationTests in 8.089 seconds (JVM running for 8.866)
+2019-11-10 17:46:57.621 ERROR 2872 --- [registrationTask1] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task.
+
+java.lang.IllegalStateException: couldn't determine local port. Please set spring.boot.admin.client.instance.service-base-url.
+	at de.codecentric.boot.admin.client.registration.DefaultApplicationFactory.getLocalServerPort(DefaultApplicationFactory.java:189) ~[spring-boot-admin-client-2.1.5.jar:2.1.5]
+	at de.codecentric.boot.admin.client.registration.DefaultApplicationFactory.getServiceBaseUrl(DefaultApplicationFactory.java:104) ~[spring-boot-admin-client-2.1.5.jar:2.1.5]
+	at de.codecentric.boot.admin.client.registration.ServletApplicationFactory.getServiceUrl(ServletApplicationFactory.java:62) ~[spring-boot-admin-client-2.1.5.jar:2.1.5]
+	at de.codecentric.boot.admin.client.registration.ServletApplicationFactory.getManagementBaseUrl(ServletApplicationFactory.java:77) ~[spring-boot-admin-client-2.1.5.jar:2.1.5]
+	at de.codecentric.boot.admin.client.registration.DefaultApplicationFactory.getHealthUrl(DefaultApplicationFactory.java:150) ~[spring-boot-admin-client-2.1.5.jar:2.1.5]
+	at de.codecentric.boot.admin.client.registration.DefaultApplicationFactory.createApplication(DefaultApplicationFactory.java:75) ~[spring-boot-admin-client-2.1.5.jar:2.1.5]
+	at de.codecentric.boot.admin.client.registration.ApplicationRegistrator.createApplication(ApplicationRegistrator.java:154) ~[spring-boot-admin-client-2.1.5.jar:2.1.5]
+	at de.codecentric.boot.admin.client.registration.ApplicationRegistrator.register(ApplicationRegistrator.java:71) ~[spring-boot-admin-client-2.1.5.jar:2.1.5]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.1.11.RELEASE.jar:5.1.11.RELEASE]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_131]
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308) [na:1.8.0_131]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_131]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294) [na:1.8.0_131]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_131]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_131]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_131]
+
+2019-11-10 17:46:57.846  INFO 2872 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-11-10 17:46:57.849  INFO 2872 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application HEROES_PASSTHROUGH with eureka with status DOWN
+2019-11-10 17:46:57.853  INFO 2872 --- [Thread-5] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService
+2019-11-10 17:46:57.854  INFO 2872 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
