@@ -4,6 +4,7 @@ spring:
   cloud:
     consul:
       host: localhost
+      port: 8500
       discovery:
         register-health-check: true    
         healthCheckInterval: 5s
