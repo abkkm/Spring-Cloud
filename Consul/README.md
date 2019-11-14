@@ -7,8 +7,7 @@ Consul nos ofrece varias capacidades:
 - Configuracion distribuida
 
 El servidor de consul lo ejecutamos en una imagen (no sucede como en Eureka que podemos crear un MiSe con el servidor de Eureka).
-El MiSe tiene que tener acceso a un agente que es quien realmente se conecta con Conul. El puerto usado por defecto para conectar con 
-el agente es el 8500, pero se puede elegir otro:
+El MiSe tiene que tener acceso a un agente que es quien realmente se conecta con Conul. El puerto usado por defecto para conectar con el agente es el 8500, pero se puede elegir otro:
 
 ```yml
 spring:
@@ -37,10 +36,9 @@ spring:
         enabled: true
         #Habilita el registro
         register: true
-```     
-     
-Los servicios se registran con un nombre y con una instance id. El instance id tiene que ser unico por cada instancia del servicio 
-registrado. Por defecto el nombre de instancia se crea usando el service-name concatenado con el puerto del MiSe.
+```
+
+Los servicios se registran con un nombre y con una instance id. El instance id tiene que ser unico por cada instancia del servicio registrado. Por defecto el nombre de instancia se crea usando el service-name concatenado con el puerto del MiSe.
 
 El nombre del servicio es el nombre logico que tenemos que usar en la uri para llamar al MiSe.
 
@@ -56,6 +54,8 @@ spring:
         hostname: localhost
 ```
 
+__Notese__ la propiedad `hostname`. Esta propiedad especifica cual es el hostname que se usara para hacer la invocacion al servicio. Si ponemos localhost, la imagen en docker lo resolvera como 127.0.0.1. Esa ip en la imagen no se corresponde con nuestra maquina, sino con la propia imagen. Ver la seccion de Health
+
 ### Registrar la Gestion como un MiSe separado
 
 Si especificamos en el yml un puerto para la gestion:
@@ -69,6 +69,7 @@ management:
 El efecto sera que se registra un segundo MiSe que estara a cargo de la gestion.
 
 ### Tags
+
 Podemos añadir metadatos al servicio que se visualizaran en Consul como tags:
 
 ```yml
@@ -82,8 +83,8 @@ spring:
 ```
 
 ### Watch
-Periodicamente se comprueba con Consul que no haya habido cambios en el registro de servicios, y si los hubiera se creara un evento 
-en el MiSe.
+
+Periodicamente se comprueba con Consul que no haya habido cambios en el registro de servicios, y si los hubiera se creara un evento en el MiSe.
 
 ```yml
 spring:
@@ -95,10 +96,9 @@ spring:
         catalog-services-watch-timeout: 1000
 ```
 
-
 ## Health
-El health check de una instancia de Consul se hace por defecto en el end-point `/health`, que por cierto es tambien la ubicacion por defecto que 
-utiliza `Actuator`. 
+
+El health check de una instancia de Consul se hace por defecto en el end-point `/health`, que por cierto es tambien la ubicacion por defecto que utiliza `Actuator`.
 
 Podemos habilitar el health check como sigue:
 
@@ -106,13 +106,12 @@ Podemos habilitar el health check como sigue:
 spring:
   cloud:
     consul:
-        register-health-check: true    
-        healthCheckInterval: 5s
+      discovery:
+        register-health-check: true        healthCheckInterval: 5s
         hostname: 10.0.75.1
 ```
 
-__Importantisimo__, como esto ejecutando __Consul en Docker__, cuando Consul invoque a la api de health, si usa localhost no se esta 
-refiriendo a mi maquina sino al propio host de Docker. Con la propiedad `hostname` podemos especificar el host que debe utilziar Docker. 
+__Importantisimo__, como esto ejecutando __Consul en Docker__, cuando Consul invoque a la api de health, si usa localhost no se esta refiriendo a mi maquina sino al propio host de Docker. Con la propiedad `hostname` podemos especificar el host que debe utilziar Docker.
 En mi caso la ip que he informado es la que mi maquina tiene asignada en el `bridge`de docker.
 
 La configuracion anterior es equivalente a:
@@ -121,7 +120,8 @@ La configuracion anterior es equivalente a:
 spring:
   cloud:
     consul:
-        register-health-check: true    
+      discovery:
+        register-health-check: true
         health-check-path: ${management.server.servlet.context-path}/health
         healthCheckInterval: 5s
         hostname: 10.0.75.1
@@ -133,7 +133,8 @@ Si quisieramos configurar otro end-point como health, por ejemplo `my-health-che
 spring:
   cloud:
     consul:
-        register-health-check: true    
+      discovery:
+        register-health-check: true
         health-check-path: /my-health-check
         healthCheckInterval: 5s
         hostname: 10.0.75.1
@@ -141,8 +142,7 @@ spring:
 
 ### Health con un management service
 
-Si especificamos otro puerto para la gestion -en actuator -, el efecto sera que se creen dos servicios en Consul para cada MiSe. El
-propio servicio, y su vertiente de gestion:
+Si especificamos otro puerto para la gestion -en actuator -, el efecto sera que se creen dos servicios en Consul para cada MiSe. El propio servicio, y su vertiente de gestion:
 
 ```yml
 # Configurar Actuator
@@ -153,14 +153,13 @@ management:
     port: 4452
 ```
 
-En este caso tenemos que especificar cual es la ruta de health, especificamente para indicar que el servlet donde se aloja el 
-health - del actuator - es ahora diferente:
+En este caso tenemos que especificar cual es la ruta de health, especificamente para indicar que el servlet donde se aloja el health - del actuator - es ahora diferente:
 
 ```yml
 spring:
   cloud:
     consul:
-        register-health-check: true    
+        register-health-check: true
         health-check-path: ${management.server.servlet.context-path}/health
         healthCheckInterval: 5s
         hostname: 10.0.75.1
@@ -182,11 +181,11 @@ spring:
 ## Configuracion Distribuida
 
 AL incluir la dependencia `spring-cloud-starter-consul-config` estamos habilitando la configuracion distribuida de Consul. La primera cosa
-que tenemos que hacer es asegurar que movemos todas las propiedades que no dependeran de Consul al `bootstrap.yml`. 
+que tenemos que hacer es asegurar que movemos todas las propiedades que no dependeran de Consul al `bootstrap.yml`.
 
 Las propiedades el MiSe las buscara en una ruta llamada:
 
-```
+```yml
 /config/<MiSe Name>/key
 ```
 
@@ -202,15 +201,15 @@ Si observamos nuestro bean, vemos que la propiedad que esperamos es `sample.prop
 @Data
 public class SampleProperties {
 
-	private String prop = "default value";
+  private String prop = "default value";
 
-	public void setProp(String prop) {
-		this.prop = prop;
-	}
+  public void setProp(String prop) {
+    this.prop = prop;
+  }
 
-	public String getProp() {
-		return prop;
-	}
+  public String getProp() {
+    return prop;
+  }
 }
 
 La configuracion tambien soporta profiles. Si configuramos un profile:
@@ -226,8 +225,7 @@ Por ejemplo, en nuestro caso podriamos ir a la consola de Consul y crear un key 
 - Key. Especificar como key: `/config/testConsulApp,dev/sample/prop`
 - Value. el valor de la propiedad para el `profile` dev.
 
-Si nuestro profile fuera `dev` la propiedad `sample.prop` se tomaria desde este key, en caso contrario desde 
-el key `/config/testConsulApp/sample/prop`
+Si nuestro profile fuera `dev` la propiedad `sample.prop` se tomaria desde este key, en caso contrario desde el key `/config/testConsulApp/sample/prop`
 
 El orden de precedencia seria:
 
@@ -240,8 +238,7 @@ __Notese_ como hay una entrada llamada `Aplication`. Esto nos permitiria crear p
 
 ### Actualizar la propiedad
 
-Si cambiasemos en Consul el valor de una propiedad, el valor se refrescara automaticamente en nuestro MiSe. Esto es asi porque las 
-propiedades tienen la anotacion `@RefreshScope`.
+Si cambiasemos en Consul el valor de una propiedad, el valor se refrescara automaticamente en nuestro MiSe. Esto es asi porque las propiedades tienen la anotacion `@RefreshScope`.
 
 ## Buscando Servicios
 
@@ -256,8 +253,7 @@ private DiscoveryClient discoveryClient;
 
 ### Ribbon
 
-Por defecto en la release Greenwich el Load Balancer que se usa es Netflix Ribbon - y el circuit breaker Netflix Hystrix. 
-Si mirasemos las librerias incluidas en el jar veriamos Ribbon, incluso sino lo hemos incluido como dependencia. Esto cambiara con la
+Por defecto en la release Greenwich el Load Balancer que se usa es Netflix Ribbon - y el circuit breaker Netflix Hystrix. Si mirasemos las librerias incluidas en el jar veriamos Ribbon, incluso sino lo hemos incluido como dependencia. Esto cambiara con la
 siguiente release, Hudson. Esto significa que cuando hacemos:
 
 ```java
@@ -271,7 +267,7 @@ o
 @Bean
 @LoadBalanced
 public RestTemplate restTemplate() {
-	return new RestTemplate();
+  return new RestTemplate();
 }
 ```
 
@@ -284,8 +280,8 @@ Podemos usar tambien Feign como load balancer. En este caso tenemos que incluir 
 ```java
 @FeignClient("testConsulApp")
 public interface SampleClient {
-	@RequestMapping(value = "/choose", method = RequestMethod.GET)
-	String choose();
+  @RequestMapping(value = "/choose", method = RequestMethod.GET)
+  String choose();
 }
 ```
 
@@ -293,8 +289,6 @@ public interface SampleClient {
 
 Starts Consul:
 
-```
+```bash
 docker-compose up -d
 ```
-
-     

@@ -1,0 +1,43 @@
+spring:  
+  application:
+    name: gateway-service
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        #Habilita el discovery
+        enabled: true
+        #Habilita el registro
+        register: false
+
+     
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    
+---
+spring:
+  profiles: zone1
+  cloud:
+    consul:
+      discovery:
+        instanceZone: zone1
+        register: false
+        registerHealthCheck: false
+        tags: zone=zone1
+server:  
+  port: ${PORT:8080}
+
+---
+spring:
+  profiles: zone2
+  cloud:
+    consul:
+      discovery:
+        instanceZone: zone2
+        register: false
+        registerHealthCheck: false
+        tags: zone=zone2
+server:  
+  port: ${PORT:9080}
