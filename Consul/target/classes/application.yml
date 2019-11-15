@@ -1,9 +1,0 @@
-server:
-  port: 8085
-
-ribbon:
-  ServerListRefreshInterval: 1000
-  
-logging:
-  level:
-    org.springframework.cloud.consul: DEBUG
