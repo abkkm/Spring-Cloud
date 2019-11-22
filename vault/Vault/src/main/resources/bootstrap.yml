@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: vault-sample
+  profiles:
+    active:
+    - prueba
+  cloud:
+    vault:
+      discovery:
+        enabled: false
+      # sets the hostname of the Vault host. The host name will be used for SSL certificate validation
+      host: www.gz.com
+      port: 8200
+      scheme: https
+      # configure the Vault endpoint with an URI. Takes precedence over host/port/scheme configuration      
+      uri: https://www.gz.com:8200 
+      connection-timeout: 5000
+      read-timeout: 15000
+      # sets the order for the property source
+      config:
+        order: -10
+      authentication: token
+      token: s.dremNR6XWrPRj1gQrQwlyrWN
+      generic:
+        enabled: true
+      kv:
+        enabled: false
+        # Es el valor por defecto
+        backend: secret
+        # Es el valor por defecto
+        profile-separator: '/'
+        # Es el valor por defecto
+        default-context: application
+        # Es el valor por defecto (el nombre de la aplicacion)
+        application-name: vault-sample
+      ssl:
+        trust-store: clienttruststore.jks
+        trust-store-password: password 

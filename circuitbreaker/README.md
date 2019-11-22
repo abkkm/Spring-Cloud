@@ -1,66 +1,113 @@
-# About
+The patter to configure is the same for all the components. Here we will use the `CircuitBreaker`. The components are:
 
-This repo contains a collection of apps that demonstrate how to using Spring Cloud CircuitBreaker
-with various circuit breaker implementations.
+- CircuitBreaker
+- ThreadPoolBulkhead
+- RateLimiter
+- Retry 
 
-# Non-Reactive Samples
 
-There are two non-reactive samples in this repo, `spring-cloud-circuitbreaker-hystrix` and
-`spring-cloud-circuitbreaker-resilience4j`.
+# 1. Create a Custom Configuration (optional)
 
-When these apps are running there are two endpoints available for testing
+```java
+CircuitBreakerConfig  myconf = CircuitBreakerConfig.custom()
+	.xxxxxxx
+	.xxxxxxx
+	.build();
+```
 
-1.  `/get` - This endpoint makes a request to [httpbin's `/get` endpoint](http://httpbin.org/#/HTTP_Methods/get_get) and returns the data
+# 2. Create a Registry
 
-2. `/delay/{seconds}` - This endpoint makes a request to [httpbin's `/delay` endpoint](http://httpbin.org/#/Dynamic_data/get_delay__delay_) passing
-the delay in the response in seconds.  Since this request can take a significant amount
-of time it is wrapped in a circuit breaker.  If the `seconds` parameter is greater than or
-equal to 3 the circuit breaker will time out and return the response `{"hello": "world"}`.
+We can create it using the defaults:
 
-# Reactive Samples
+```java
+CircuitBreakerRegistry mycircuitBreakerRegistry  = CircuitBreakerRegistry.ofDefaults();
+```
 
-There are three reactive samples in this repo, `spring-cloud-circuitbreaker-demo-reactive`,
-`spring-cloud-circuitbreaker-demo-reactive-hystrix`, and `spring-cloud-circuibreaker-demo-reactive-resilience4j`.
+Or we can use our custom configuration:
 
-## Hystrix and Resilience4J Reactive Samples
+```java
+CircuitBreakerRegistry mycircuitBreakerRegistry = CircuitBreakerRegistry.of(myconf);
+```
 
-Both of these samples contain the same two endpoints as the non-reactive samples 
-(which in this case return a `Mono`), but also
-contain an additional endpoint to demonstrate the use of `Flux`.  This endpoint can be 
-accessed by calling `/fluxdelay/{seconds}`.  It has the same functionality as `/delay/{seconds}`
-but the fallback returns a `Flux`.
+We can add a configuration on top of an existing registry:
 
-## spring-cloud-circuitbreaker-demo-reactive
+```java
+mycircuitBreakerRegistry.addConfiguration("myExtraConfiguration", myconfig);
+```
 
-This sample demonstrates how to using Spring Cloud CircuitBreaker with reactive types from
-RxJava2 and CompletableFuture.  There are four endpoints available for testing in this app
+# 3. Create a CircuitBreaker
 
-1. `/rxjava2/get` 
-2. `/rxjava2/delay/{seconds}`
-3. `/completablefuture/get`
-4. `/completablefuture/delay/{seconds}`
+We use the registry to create the CircuitBreaker. We name it and optionally provide a configuration - that will override any set that the registry may have:
 
-Each of these have the same functionality as the other endpoints in the other apps.
+Using the registry configuration:
 
-# Resilience4J and Metrics
+```java
+CircuitBreaker myCircuitBreaker1 =  mycircuitBreakerRegistry.circuitBreaker("name1");
+```
 
-With Spring Cloud CircuitBreaker and Resilience4J you can easily collect metrics about
-the circuit breakers in your app.  This is demoed in both `spring-cloud-circuitbreaker-demo-resilience4j`
-and `spring-cloud-circuitbreaker-demo-reactive-resilience4j`.  You can see the metrics available
-by hitting `/actuator/metrics`.
+Using an custom configuration - in our case is silly because we are using the same configuration the CircuitBreaker already has:
 
-NOTE: The code wrapped by the circuit breaker needs to be executed before any metrics appear
+```java
+CircuitBreaker myCircuitBreaker2 = mycircuitBreakerRegistry.circuitBreaker("name2", myconf);
+```
 
-You can also have these metrics collected by Prometheus and visualized in Grafana.  To demonstrate
-this, the repo contains a Docker Compose file that will start Prometheus and Grafana locally
-and scrape the metrics being surfaces at `/actuator/prometheus`.  To see it in action
+# 4. Use the CircuitBreaker
 
-1.  Start either `spring-cloud-circuitbreaker-demo-resilience4j` or `spring-cloud-circuitbreaker-demo-reactive-resilience4j`.
-2.  `cd` into the `grafana` directory in the root of the repo
-3.  Run `docker-compose up`
-4.  Go to http://localhost:3000 and login with the username `admin` and the password `admin`
-5.  There will be a datasource pointing to the docker container running Prometheus and dashboard already configured to visualize the Resilience4J metrics
-6.  Make some requests to the `/delay` endpoint.  You can easily do this with a tool like `watch`.
-For example `watch -n 1 http :8080/delay/5`.
-7.  If you refresh the Grafana dashboard or set its automatic refresh you should see the graphs begin to change
-as requests are made.
+## Decorated Supplier
+
+We can create a Decorated Supplier. In this case we create one that returns a String:
+
+```java
+CheckedFunction0<String> myDecoratedSupplier = CircuitBreaker.decorateCheckedSupplier(
+	myCircuitBreaker1, 
+	() -> "This can be any method which returns an String);
+```
+
+We use `Try.of` to use the Decorated Supplier. See that we can chain functions - in this case a `map`.
+
+```java
+Try<String> resultado = Try.of(myDecoratedSupplier)
+                .map(value -> value + ". Con un extra");
+```
+
+We then evaluate the response. We check if it has completed - `isSuccess()` - and then we get the returned value - `get()`:
+
+```java
+assertThat(resultado.isSuccess()).isTrue();
+assertThat(resultado.get()).isEqualTo("This can be any method which returns an String. Con un extra");
+```
+
+### Recover
+
+See that we can add a failback using `recover`:
+
+```java
+String resultado = Try.ofSupplier(myDecoratedSupplier)
+	.map(value -> value + ". Con un extra");
+    .recover(throwable -> "Hello from Recovery")
+	.get(); 
+```
+
+## Use the functional interface directly
+
+If we do not want to decorate our functional interface but call it directly - in this case we call `backendService::doSomething`:
+
+```java
+String resultado = myCircuitBreaker1.executeSupplier(backendService::doSomething);
+```
+
+# 5. Consume Events (optional)
+
+Each objet has its own events that we can use to monitor changes of state and configuration: 
+
+```java
+mycircuitBreakerRegistry.getEventPublisher()
+  .onEntryAdded(entryAddedEvent -> {
+		CircuitBreaker addedCircuitBreaker = entryAddedEvent.getAddedEntry();
+		LOG.info("CircuitBreaker {} added", addedCircuitBreaker.getName());
+  })
+  .onEntryRemoved(entryRemovedEvent -> {
+		CircuitBreaker removedCircuitBreaker = entryRemovedEvent.getRemovedEntry();
+		LOG.info("CircuitBreaker {} removed", removedCircuitBreaker.getName());
+  });
+```

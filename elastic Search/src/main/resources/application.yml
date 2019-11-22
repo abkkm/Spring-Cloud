@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: sample-spring-elasticsearch
+  data:
+    elasticsearch:
+      cluster-name: docker-cluster
+      cluster-nodes: www.gz.com:9300
+
+  elasticsearch:
+    rest:
+      uris: http://www.gz.com:9200
+
+initial-import:
+  enabled: false
