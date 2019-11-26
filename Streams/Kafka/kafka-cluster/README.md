@@ -35,6 +35,7 @@ La definicion del cluster de Zookeeper es bastante estandard:
       ZOOKEEPER_INIT_LIMIT: 5
       ZOOKEEPER_SYNC_LIMIT: 2
       ZOOKEEPER_SERVERS: zookeeper-1:2888:3888;zookeeper-2:2888:3888;zookeeper-3:2888:3888
+	  ZOOKEEPER_4LW_COMMANDS_WHITELIST: *	  
     extra_hosts:
       - "moby:127.0.0.1"
     ports:
