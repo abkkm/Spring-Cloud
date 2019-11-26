@@ -57,8 +57,8 @@ La definicion de un nodo de Kafka:
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper-1:2181,zookeeper-2:2181,zookeeper-3:2181
-      KAFKA_LISTENERS: PLAINTEXT://kafka-1:9092,PLAINTEXT_HOST://localhost:29092
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-1:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENERS: PLAINTEXT://kafka-1:9092,PLAINTEXT_HOST://:29092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-1:9092,PLAINTEXT_HOST://10.0.75.1:29092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
     extra_hosts:
@@ -72,8 +72,8 @@ La definicion de un nodo de Kafka:
 - `KAFKA_ZOOKEEPER_CONNECT` hacemos referencia a cada nodo de Zookeeper usando el nombre del servicio en docker-compose
 - Hemos definido dos listeners:
 	- PLAINTEXT. Se usa este listener cuando un cliente accede al host `kafka-1` puerto `9092`
-	- PLAINTEXT_HOST. Se usa este listener cuando un cliente accede al host `localhost` puerto `29092`. Este listener esta pensado para ser usado cuando llamamos desde el pc que hostea los contenedores de docker. Por este motivo hemos expuesto este puerto en el contenedor
-- `KAFKA_ADVERTISED_LISTENERS` tenemos los metadatos que se devolveran al cliente para que este acceda al cluster. Notese como desde `localhost`, esto es, desde el host de Docker, usaremos el puerto `29092`
+	- PLAINTEXT_HOST. Se usa este listener cuando un cliente accede al host `10.0.75.1` puerto `29092`. Este listener esta pensado para ser usado cuando llamamos desde el pc que hostea los contenedores de docker. Por este motivo hemos expuesto este puerto en el contenedor
+- `KAFKA_ADVERTISED_LISTENERS` tenemos los metadatos que se devolveran al cliente para que este acceda al cluster. Notese como desde `10.0.75.1`, esto es, desde el host de Docker, usaremos el puerto `29092`
 - La comunicacion interna entre los nodos del cluster usara el listener `PLAINTEXT` tal y como se indica en `KAFKA_INTER_BROKER_LISTENER_NAME`
 
 
