@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.spring.cloud.stream.sample</groupId>
+    <artifactId>kafka-partitioning</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>kafka-partitioning</name>
+    <description>Collection of Spring Cloud Stream partitioning Samples using Kafka binder</description>
+
+    <modules>
+        <module>partitioning-producer-sample-kafka</module>
+        <module>partitioning-consumer-sample-kafka</module>
+    </modules>
+
+</project>
