@@ -1,10 +1,13 @@
-package com.euge.streams;
+package com.euge.streams.servicio;
 
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MimeTypeUtils;
+
+import com.euge.streams.GreetingsStreams;
+import com.euge.streams.modelo.Greetings;
 
 @Service
 public class GreetingsService {

@@ -1,10 +1,13 @@
-package com.euge.streams;
+package com.euge.streams.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.euge.streams.modelo.Greetings;
+import com.euge.streams.servicio.GreetingsService;
 
 @RestController
 public class GreetingsController {

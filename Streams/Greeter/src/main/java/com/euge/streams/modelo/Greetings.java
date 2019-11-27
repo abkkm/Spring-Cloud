@@ -1,4 +1,4 @@
-package com.euge.streams;
+package com.euge.streams.modelo;
 
 public class Greetings {
 	private long timestamp;
