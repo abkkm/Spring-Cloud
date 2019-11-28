@@ -7,7 +7,7 @@ Consul nos ofrece varias capacidades:
 - Configuracion distribuida
 
 El servidor de consul lo ejecutamos en una imagen (no sucede como en Eureka que podemos crear un MiSe con el servidor de Eureka).
-El MiSe tiene que tener acceso a un agente que es quien realmente se conecta con Conul. El puerto usado por defecto para conectar con el agente es el 8500, pero se puede elegir otro:
+El MiSe tiene que tener acceso a un __Agente__ que es quien realmente se conecta con Conul. El puerto usado por defecto para conectar con el agente es el 8500, pero se puede elegir otro:
 
 ```yml
 spring:
@@ -20,9 +20,14 @@ spring:
 
 ## Registro de servicios
 
-Para registrar servicios basta con incluir la dependencia
+Para registrar servicios basta con incluir la dependencia. Cada MiSe entonces tiene que "contactar" con Consul - a traves del Agente - para informarle de su presencia.
 
-El servicio puede usar solo el discovery y no registrarse, o registrarse tambien:
+Hay dos casos de uso:
+
+- Registrar el MiSe. El MiSe pasa a ser registrado en Consul, de modo que puede ser invocado desde otros MiSe
+- Discovery. El MiSe no se registra en Consul, pero es capaz de ver que servicios estan registrados en Consul - y llamarlos
+
+El servicio puede usar uno u otro servicio - o ambos:
 
 ```yml
 spring:
@@ -38,7 +43,7 @@ spring:
         register: true
 ```
 
-Los servicios se registran con un nombre y con una instance id. El instance id tiene que ser unico por cada instancia del servicio registrado. Por defecto el nombre de instancia se crea usando el service-name concatenado con el puerto del MiSe.
+__Los servicios se registran con un nombre y con una instance id__. El __instance id__ tiene que ser __unico__ por cada instancia del servicio registrado. Por defecto el nombre de instancia se crea usando el service-name concatenado con el puerto del MiSe.
 
 El nombre del servicio es el nombre logico que tenemos que usar en la uri para llamar al MiSe.
 
@@ -98,7 +103,7 @@ spring:
 
 ## Health
 
-El health check de una instancia de Consul se hace por defecto en el end-point `/health`, que por cierto es tambien la ubicacion por defecto que utiliza `Actuator`.
+Consul necesita comprobar periodicamente que los servicios registrados siguen activos. Para ello cada servicio tiene que exponer un endpoint - que sera invocado por Consul. El health check de una instancia de Consul se hace por defecto en el end-point `/health`, que por cierto, es tambien la ubicacion por defecto que utiliza `Actuator`.
 
 Podemos habilitar el health check como sigue:
 
@@ -107,7 +112,8 @@ spring:
   cloud:
     consul:
       discovery:
-        register-health-check: true        healthCheckInterval: 5s
+        register-health-check: true        
+		healthCheckInterval: 5s
         hostname: 10.0.75.1
 ```
 
@@ -127,7 +133,7 @@ spring:
         hostname: 10.0.75.1
 ```
 
-Si quisieramos configurar otro end-point como health, por ejemplo `my-health-check`, tendriamos que configurar:
+Si quisieramos configurar otro end-point como health - y no reutilizar el que viene con `Actuator` -, por ejemplo `my-health-check`, tendriamos que configurar:
 
 ```yml
 spring:
@@ -142,7 +148,7 @@ spring:
 
 ### Health con un management service
 
-Si especificamos otro puerto para la gestion -en actuator -, el efecto sera que se creen dos servicios en Consul para cada MiSe. El propio servicio, y su vertiente de gestion:
+Si especificamos otro puerto para la gestion -en `Actuator` -, el efecto es que se crean dos servicios en Consul para cada MiSe: el propio MiSe, y su vertiente de gestion:
 
 ```yml
 # Configurar Actuator
