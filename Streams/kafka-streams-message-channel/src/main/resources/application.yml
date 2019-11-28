@@ -5,6 +5,8 @@ spring.cloud.stream:
   commit.interval.ms: 1000
   default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
   default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+ kafka.streams.binder.brokers: 10.0.75.1:29092,10.0.75.1:39092,10.0.75.1:49092
+  
 spring.cloud.stream.bindings.process-out-0:
   destination: counts
 spring.cloud.stream.bindings.process-in-0:

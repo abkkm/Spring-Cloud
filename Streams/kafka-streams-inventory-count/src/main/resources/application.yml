@@ -1,5 +1,5 @@
 spring.application.name: kafka-streams-inventory-processor
-
+spring.cloud.stream.kafka.streams.binder.brokers: 10.0.75.1:29092,10.0.75.1:39092,10.0.75.1:49092
 spring.cloud.stream.bindings.process-in-0:
   destination: inventory-update-events
 spring.cloud.stream.bindings.process-out-0:

@@ -13,6 +13,7 @@ spring.cloud.stream:
           default:
             key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
             value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        brokers: 10.0.75.1:29092,10.0.75.1:39092,10.0.75.1:49092            
 #Enable metrics
 management:
   endpoint:
