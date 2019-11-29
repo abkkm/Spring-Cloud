@@ -43,6 +43,15 @@ As part of the agreement protocol all write requests from clients are forwarded 
 
 ZooKeeper uses a custom atomic messaging protocol. Since the messaging layer is atomic, ZooKeeper can guarantee that the local replicas never diverge. When the leader receives a write request, it calculates what the state of the system is when the write is to be applied and transforms this into a transaction that captures this new state.
 
+## Zookeeper features
+
+- Nodes, or znodes, could be of two types, ephemeral - they disapear when the node disconects from the Leader - or persistent
+- The zondes define a sort of hierarchy of nodes, like a filesystem. The nodes store data, configuration data
+- Clients can stablish a watch to znodes, so they know when the znodes join or leave the essemble
+- We can create distributed locks
+- Leader election - for example when Kafka needs to pick a leader
+
+
 # Kafka
 
 - A cluster is formed by brokers that consitute a distributed system
@@ -90,7 +99,7 @@ Each record - is called query in Lucene jargon - consists of:
 
 Consensus is one of the fundamental challenges of a distributed system. It requires all the processes/nodes in the system to agree on a given data value/status. There are a lot of consensus algorithms like Raft, Paxos, etc. which are mathematically proven to work, however, Elasticsearch has implemented its own consensus system (zen discovery) 
 
-##Concurrency
+## Concurrency
 
 __Create, update and delete requests hits primary shard__ that will __in turn send parallel requests to all of its replica shards__. However, it is possible that these request arrive out of order. To resolve it, Elasticsearch uses optimistic concurrency control that uses version number to make sure that newer version of document will not be overwritten by older ones. So, every document indexed has a version number which is incremented with every change applied to that document.
 
