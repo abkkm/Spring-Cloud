@@ -33,10 +33,9 @@ El dashaboard puede abrirse [aqui](http://localhost:9393/dashboard/#/apps).
 
 ### Other URLs
 
-[See](https://docs.spring.io/spring-cloud-dataflow/docs/current/reference/htmlsingle/#api-guide-resources-runtime-information-applications)
+Ver [detalles](https://docs.spring.io/spring-cloud-dataflow/docs/current/reference/htmlsingle/#api-guide-resources-runtime-information-applications).
 
-[Inventory of running apps](http://localhost:9393/runtime/apps)
-
+El inventario de aplicaciones puede recuperarse en real time del Cloud Data Server utilizando [este endpoint](http://localhost:9393/runtime/apps).
 
 ## Arrancar el shell
 
@@ -94,9 +93,8 @@ Modificar la entrada `app-import` para reemplazar `https://dataflow.spring.io/ka
 
 ## Cambiar Prometheus por InfluxDB
 
-[Ver](https://dataflow.spring.io/docs/installation/local/docker-customize/)
+Para cambiar de Prometheus a InfluxDB, consultar [aqui](https://dataflow.spring.io/docs/installation/local/docker-customize/).
 
 ## Crear y ejecutar aplicaciones locales - en el host
 
-Si desarrollamos aplicaciones que queremos ejecutar en local en la maquina que "hostea" docker, tenemos que configurar los volumnes y la configuracion en el docker-compose. [Ver](https://dataflow.spring.io/docs/installation/local/docker-customize/).
-
+Si desarrollamos aplicaciones que queremos ejecutar en local en la maquina que "hostea" docker, tenemos que configurar los volumnes y la configuracion en el docker-compose [ver](https://dataflow.spring.io/docs/installation/local/docker-customize/).
