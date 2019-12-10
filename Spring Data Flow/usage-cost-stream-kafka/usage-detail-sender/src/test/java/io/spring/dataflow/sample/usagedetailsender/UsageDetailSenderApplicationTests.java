@@ -30,6 +30,7 @@ public class UsageDetailSenderApplicationTests {
 	@Test
 	public void testUsageDetailSender() throws Exception {
 		final Message message = this.messageCollector.forChannel(this.source.output()).poll(1, TimeUnit.SECONDS);
+
 		final String usageDetailJSON = message.getPayload().toString();
 		assertTrue(usageDetailJSON.contains("userId"));
 		assertTrue(usageDetailJSON.contains("duration"));

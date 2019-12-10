@@ -1,5 +1,6 @@
 package io.spring.dataflow.sample.usagecostlogger;
 
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
@@ -39,6 +40,9 @@ public class UsageCostLoggerApplicationTests {
 		this.sink.input().send(MessageBuilder.withPayload("{\"userId\":\"user3\",\"callCost\":10.100000000000001,\"dataCost\":25.1}").build());
 
 		verify(this.usageCostLogger).process(captor.capture());
+
+		assertTrue(captor.getValue().getUserId().compareTo("user3")==0);
+
 	}
 
 	@EnableAutoConfiguration

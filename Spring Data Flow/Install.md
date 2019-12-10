@@ -19,7 +19,7 @@ export SKIPPER_VERSION=2.1.2.RELEASE
 docker-compose up -d
 ```
 
-En wondows
+En windows
 
 ```powershell
 $Env:DATAFLOW_VERSION="2.2.1.RELEASE"
