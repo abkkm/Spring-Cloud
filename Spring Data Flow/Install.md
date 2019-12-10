@@ -29,7 +29,7 @@ docker-compose up -d
 
 ## Spring Cloud Data Flow Dashboard
 
-El dashaboard puede abrirse [aqui](http://localhost:9393/dashboard/#/apps).
+El dashboard puede abrirse [aqui](http://localhost:9393/dashboard/#/apps).
 
 ### Other URLs
 
