@@ -1,3 +1,6 @@
+See how the Kafka Cluster is setup in the [Spring Stream showcase](../Streams/Kafka/kafka-cluster/README.md)
+
+
 # Instalar (local)
 
 El Docker Compose arranca los siguientes productos:

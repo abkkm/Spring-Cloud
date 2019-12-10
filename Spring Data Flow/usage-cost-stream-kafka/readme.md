@@ -1,6 +1,6 @@
 Vamos a demostrar como utilizar Spring Streaming. Primero lo usaremos a pelo y en segundo lugar utilizando `Spring Data Flow`.
 
-## Aplicaciones
+# Aplicaciones
 
 Tenemos tres aplicaciones
 
@@ -8,7 +8,7 @@ Tenemos tres aplicaciones
 - Processor. Recibe informacion, la procesa, y la envia
 - Sink. Canal fuete. Recive informacion
 
-### Dependencias
+## Dependencias
 
 Las tres aplicaciones usan las mismas dependencias. Podemos destacar las siguientes dependencias:
 
@@ -69,7 +69,36 @@ Las tres aplicaciones usan las mismas dependencias. Podemos destacar las siguien
 	</dependencies>
 ```
 
-### Aplicacion `Source`
+## Conexion
+
+En todos los application.yml especificaremos donde poder conectarnos con Kafka. Esta configuracion la hemos incluido especificamente para cubrir el caso en el que las aplicaciones se ejecutar a pelo, desde el pc local - no desde dentro de docker en una imagen. En la configuracion del kafka hemos "advertised" la ip del host local, que sera la que el adaptador de red le asigne al pc local en docker - en mi caso `10.0.75.1`. Ver [los detalles de la configuracion de Kafka](../Streams/Kafka/Zookeeper-Kafka.md).
+
+```yml
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    container_name: dataflow-kafka
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://:29092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://10.0.75.1:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    ports:
+      - '29092:29092'
+```
+
+Notese como desde dentro de Docker kafka esta publicado en `kafka:9092`, pero desde el pc que hostea docker, kafka esta publicado en `10.0.75.1:29092`. En las aplicaciones incluiremos la siguiente entrada:
+
+```yml
+spring.cloud.stream.kafka.binder.brokers=10.0.75.1:29092
+```
+
+## Aplicacion `Source`
 
 La aplicacion se llama `usage-detail-sender-kafka`.
 
@@ -108,7 +137,7 @@ Notese como usamos la bean inyectada para enviar los datos:
 this.source.output().send(MessageBuilder.withPayload(usageDetail).build());
 ```
 
-#### Resources
+### Resources
 
 Especificamos el nombre del topic donde la aplicacion escribira. No es preciso especificar el binder porque solo se usa Kafka - en el class path. Los datos de conexion con Kafka son los por defecto, por eso no se detallan:
 
@@ -116,7 +145,7 @@ Especificamos el nombre del topic donde la aplicacion escribira. No es preciso e
 spring.cloud.stream.bindings.output.destination=usage-detail
 ```
 
-#### Testing
+### Testing
 
 Se inyectan dos beans:
 
@@ -145,7 +174,7 @@ final Message message = this.messageCollector.forChannel(this.source.output()).p
 		assertTrue(usageDetailJSON.contains("data"));
 ```
 
-### Aplicacion `Procesor`
+## Aplicacion `Procesor`
 
 La aplicacion se llama `usage-cost-processor-kafka`.
 
@@ -170,7 +199,7 @@ public UsageCostDetail processUsageCost(UsageDetail usageDetail) {
 }
 ```
 
-#### Resources
+### Resources
 
 Especificamos el nombre del topic donde la aplicacion lee - que coincide con el topic donde nuestro `Source` escribio -, y el topic donde escribe:
 
@@ -179,7 +208,7 @@ spring.cloud.stream.bindings.input.destination=usage-detail
 spring.cloud.stream.bindings.output.destination=usage-cost
 ```
 
-#### Testing
+### Testing
 
 Se inyectan dos beans:
 
@@ -227,7 +256,7 @@ Verificamos que llegue lo que se supone debe llegar:
 assertTrue(message.getPayload().toString().equals("{\"userId\":\"user3\",\"callCost\":10.100000000000001,\"dataCost\":25.1}"));
 ```
 
-### Aplicacion `Sink`
+## Aplicacion `Sink`
 
 La aplicacion se llama `usage-cost-logger-kafka`.
 
@@ -247,7 +276,7 @@ public void process(UsageCostDetail usageCostDetail) {
 }
 ```
 
-#### Resources
+### Resources
 
 Especificamos el nombre del topic donde la aplicacion lee - que coincide con el topic donde nuestro `Procesor` escribio.
 
@@ -255,7 +284,7 @@ Especificamos el nombre del topic donde la aplicacion lee - que coincide con el 
 spring.cloud.stream.bindings.input.destination=usage-cost
 ```
 
-#### Testing
+### Testing
 
 Se inyectan dos beans:
 
@@ -335,4 +364,86 @@ Notese que como process tiene un argumento de entrada debemos definir un captor.
 
 ```java
 assertTrue(captor.getValue().getUserId().compareTo("user3")==0);
+```
+
+# Ejecutar las aplicaciones
+
+Vamos a ver dos formas de ejecutar las aplicaciones:
+
+- Directamente, como aplicaciones individuales
+- Usando Spring Dataflow
+
+En ambos casos arrancamos nuestra configuracion de docker-compose:
+
+```sh
+docker-compose up -d
+```
+
+## Directamente
+
+Lanzamos los jars
+
+```sh
+Start-Job -ScriptBlock {& java -jar usage-detail-sender-kafka-0.0.1-SNAPSHOT.jar}
+
+Start-Job -ScriptBlock {& java -jar usage-cost-processor-kafka-0.0.1-SNAPSHOT.jar}
+
+Start-Job -ScriptBlock {& java -jar usage-cost-logger-kafka-0.0.1-SNAPSHOT.jar}
+```
+
+Podemos ver como los tres jobs se estan ejecutando:
+
+```sh
+Get-Job
+
+Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+--     ----            -------------   -----         -----------     --------             -------
+3      Job3            BackgroundJob   Completed     True            localhost            & java -jar usage-deta...
+5      Job5            BackgroundJob   Completed     True            localhost            & java -jar usage-cost...
+7      Job7            BackgroundJob   Completed     True            localhost            & java -jar usage-cost...
+```
+
+Nos conectamos a Zookeeper:
+
+```sh
+docker-compose exec zookeeper bash
+```
+
+Abrimos la consola:
+
+```sh
+root@08d8fbf75789:/# zookeeper-shell localhost:2181
+Connecting to localhost:2181
+Welcome to ZooKeeper!
+JLine support is disabled
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:None path:null
+```
+
+Vemos que los dos topicos se han creado:
+
+```sh
+ls /brokers/topics
+
+[usage-cost, __confluent.support.metrics, __consumer_offsets, usage-detail]
+```
+
+Conectemonos ahora al nodo de Kafka para mirar los topicos:
+
+```sh
+docker-compose exec kafka bash
+```
+
+Veamos el contenido del primer topic:
+
+```sh
+kafka-console-consumer --bootstrap-server kafka:9092 --topic usage-detail --from-beginning
+```
+
+Y el del segundo topic:
+
+```sh
+kafka-console-consumer --bootstrap-server kafka:9092 --topic usage-cost --from-beginning
 ```
