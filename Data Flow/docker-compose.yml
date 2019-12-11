@@ -39,6 +39,13 @@ services:
     ports:
       - '2181:2181'
 
+  rabbit:
+    image: rabbitmq:management-alpine
+    container_name: dataflow-rabbit
+    ports:
+      - '5672:5672'
+      - '9080:15672'
+  
   dataflow-server:
     image: springcloud/spring-cloud-dataflow-server:${DATAFLOW_VERSION:?DATAFLOW_VERSION is not set!}
     container_name: dataflow-server
