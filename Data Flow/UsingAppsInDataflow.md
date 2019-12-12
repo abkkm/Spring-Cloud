@@ -1,4 +1,4 @@
-# Introduction
+# Instalacion
 
 Para ejecutar las aplicaciones con el "paraguas" de Spring Dataflow tenemos que tomar una serie de pasos:
 
@@ -62,6 +62,12 @@ Y ademas ha hecho toda la configuracion de Prometheus
 
 ![Definicion](./Imagenes/Definicion.PNG)
 
+# Resultados
+
+Veamos como se ve en Kafka y en Rabiit los streams:
+
+## Kafka
+
 Podemos ver en Kafka dichos topicos:
 
 ![Definicion](./Imagenes/topicos.PNG)
@@ -74,8 +80,12 @@ Podemos ver el consumer group que se ha creado en kafka - coincide con la defini
 
 ![Definicion](./Imagenes/CG.PNG)
 
-Por ultimo podemos ver el dashboard de Grafana - usuario admin, admin:
+## Rabbit
 
-	  
-	  
-  
+Podemos ver en Rabbit los exchanges:
+
+![Definicion](./Imagenes/exchanges.PNG)
+
+Podemos ver tambien las colas:
+
+![Definicion](./Imagenes/colas.PNG)

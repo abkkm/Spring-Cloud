@@ -78,6 +78,7 @@ $Env:SKIPPER_VERSION="2.1.2.RELEASE"
 
 docker-compose up -d
 ```
+
 ## Instalacion con Rabbit
 
 En unix
@@ -102,6 +103,32 @@ __Nota__: para parar:
 
 ```sh
 docker-compose -f ./docker-compose.yml -f ./docker-compose-rabbitmq.yml down
+```
+
+## Instalacion Conjunta
+
+En unix
+
+```sh
+export DATAFLOW_VERSION=2.2.1.RELEASE
+export SKIPPER_VERSION=2.1.2.RELEASE
+
+docker-compose -f ./docker-compose-completo.yml up -d
+```
+
+En windows
+
+```powershell
+$Env:DATAFLOW_VERSION="2.2.1.RELEASE"
+$Env:SKIPPER_VERSION="2.1.2.RELEASE"
+
+docker-compose -f ./docker-compose-completo.yml up -d
+```
+
+__Nota__: para parar:
+
+```sh
+docker-compose -f ./docker-compose-completo.yml down
 ```
 
 # Spring Cloud Data Flow Dashboard
