@@ -177,3 +177,7 @@ Podemos ver tambien las colas creadas:
 Si paramos el consumidor de una de las colas, podemos ver como los mensajes empezaran a acumularse:
 
 ![Acumula](./Imagenes/Acumula.PNG)
+
+## Usando Spring Data Flow
+
+Ver como hacerlo [aqui](../UsingAppsInDataflow.md).

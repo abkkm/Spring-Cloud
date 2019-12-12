@@ -447,3 +447,7 @@ Y el del segundo topic:
 ```sh
 kafka-console-consumer --bootstrap-server kafka:9092 --topic usage-cost --from-beginning
 ```
+
+## Usando Spring Data Flow
+
+Ver como hacerlo [aqui](../UsingAppsInDataflow.md).
