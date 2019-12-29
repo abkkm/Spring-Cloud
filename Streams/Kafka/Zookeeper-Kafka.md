@@ -4,7 +4,7 @@ Para ver en detalle como administrar el Zookeeper acudir [aqui](https://zookeepe
 
 ## ZooKeeper Commands: The Four Letter Words
 
-Podemos ver cual es el estado de un servidor en el cluster de Zookeeper conectandonos con `telnet´ o `nc`. Nos conectamos y luego tecleamos el comando `stat`:
+Podemos ver cual es el estado de un servidor en el cluster de Zookeeper conectandonos con `telnet` o `nc`. Nos conectamos y luego tecleamos el comando `stat`:
 
 ```sh
 nc 192.168.48.4 2181
