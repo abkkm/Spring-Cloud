@@ -19,10 +19,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.antMatchers("/assets/**").permitAll()
 		.antMatchers("/login").permitAll()
 		.anyRequest().authenticated().and()
+		
 		.formLogin().loginPage("/login")
 		.successHandler(successHandler).and()
+		
 		.logout().logoutUrl("/logout").and()
+		
 		.httpBasic().and()
+		
 		.csrf()
 		.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
 		.ignoringAntMatchers(

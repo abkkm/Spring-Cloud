@@ -1,7 +1,6 @@
 package com.swisscom.heroes.model;
 
-import javax.validation.constraints.NotNull;
-
+import org.springframework.lang.NonNull;
 import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,12 +20,12 @@ public final class Hero {
 		this.name=name;
 	}
 
-	@NotNull
+	@NonNull
 	public int getId() {
 		return id;
 	}
 
-	@NotNull
+	@NonNull
 	public String getName() {
 		return name;
 	}
